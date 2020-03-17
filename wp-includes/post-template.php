@@ -305,22 +305,7 @@ function get_the_content( $more_link_text = null, $strip_teaser = false ) {
 		}
 	}
 
-	if ( $preview ) // Preview fix for JavaScript bug with foreign languages.
-		$output =	preg_replace_callback( '/\%u([0-9A-F]{4})/', '_convert_urlencoded_to_entities', $output );
-
 	return $output;
-}
-
-/**
- * Preview fix for JavaScript bug with foreign languages.
- *
- * @since 3.1.0
- * @access private
- * @param array $match Match array from preg_replace_callback
- * @return string
- */
-function _convert_urlencoded_to_entities( $match ) {
-	return '&#' . base_convert( $match[1], 16, 10 ) . ';';
 }
 
 /**
@@ -1597,7 +1582,7 @@ function wp_get_attachment_link( $id = 0, $size = 'thumbnail', $permalink = fals
 	 * @param bool        $icon      Whether to include an icon. Default false.
 	 * @param string|bool $text      If string, will be link text. Default false.
 	 */
-	return apply_filters( 'wp_get_attachment_link', "<a href='$url'>$link_text</a>", $id, $size, $permalink, $icon, $text );
+	return apply_filters( 'wp_get_attachment_link', "<a href='" . esc_url( $url ) . "'>$link_text</a>", $id, $size, $permalink, $icon, $text );
 }
 
 /**

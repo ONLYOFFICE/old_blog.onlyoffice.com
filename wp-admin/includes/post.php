@@ -165,7 +165,35 @@ function _wp_translate_postdata( $update = false, $post_data = null ) {
 		$post_data['post_date_gmt'] = get_gmt_from_date( $post_data['post_date'] );
 	}
 
+	if ( isset( $post_data['post_category'] ) ) {
+		$category_object = get_taxonomy( 'category' );
+		if ( ! current_user_can( $category_object->cap->assign_terms ) ) {
+			unset( $post_data['post_category'] );
+		}
+	}
+
 	return $post_data;
+}
+
+/**
+ * Returns only allowed post data fields
+ *
+ * @since 4.9.9
+ *
+ * @param array $post_data Array of post data. Defaults to the contents of $_POST.
+ * @return object|bool WP_Error on failure, true on success.
+ */
+function _wp_get_allowed_postdata( $post_data = null ) {
+	if ( empty( $post_data ) ) {
+		$post_data = $_POST;
+	}
+
+	// Pass through errors
+	if ( is_wp_error( $post_data ) ) {
+		return $post_data;
+	}
+
+	return array_diff_key( $post_data, array_flip( array( 'meta_input', 'file', 'guid' ) ) );
 }
 
 /**
@@ -236,6 +264,7 @@ function edit_post( $post_data = null ) {
 	$post_data = _wp_translate_postdata( true, $post_data );
 	if ( is_wp_error($post_data) )
 		wp_die( $post_data->get_error_message() );
+	$translated = _wp_get_allowed_postdata( $post_data );
 
 	// Post Formats
 	if ( isset( $post_data['post_format'] ) )
@@ -313,7 +342,7 @@ function edit_post( $post_data = null ) {
 		$attachment_data = isset( $post_data['attachments'][ $post_ID ] ) ? $post_data['attachments'][ $post_ID ] : array();
 
 		/** This filter is documented in wp-admin/includes/media.php */
-		$post_data = apply_filters( 'attachment_fields_to_save', $post_data, $attachment_data );
+		$translated = apply_filters( 'attachment_fields_to_save', $translated, $attachment_data );
 	}
 
 	// Convert taxonomy input to term IDs, to avoid ambiguity.
@@ -358,7 +387,7 @@ function edit_post( $post_data = null ) {
 				}
 			}
 
-			$post_data['tax_input'][ $taxonomy ] = $clean_terms;
+			$translated['tax_input'][ $taxonomy ] = $clean_terms;
 		}
 	}
 
@@ -366,18 +395,18 @@ function edit_post( $post_data = null ) {
 
 	update_post_meta( $post_ID, '_edit_last', get_current_user_id() );
 
-	$success = wp_update_post( $post_data );
+	$success = wp_update_post( $translated );
 	// If the save failed, see if we can sanity check the main fields and try again
 	if ( ! $success && is_callable( array( $wpdb, 'strip_invalid_text_for_column' ) ) ) {
 		$fields = array( 'post_title', 'post_content', 'post_excerpt' );
 
 		foreach( $fields as $field ) {
-			if ( isset( $post_data[ $field ] ) ) {
-				$post_data[ $field ] = $wpdb->strip_invalid_text_for_column( $wpdb->posts, $field, $post_data[ $field ] );
+			if ( isset( $translated[ $field ] ) ) {
+				$translated[ $field ] = $wpdb->strip_invalid_text_for_column( $wpdb->posts, $field, $translated[ $field ] );
 			}
 		}
 
-		wp_update_post( $post_data );
+		wp_update_post( $translated );
 	}
 
 	// Now that we have an ID we can fix any attachment anchor hrefs
@@ -537,9 +566,9 @@ function bulk_edit_posts( $post_data = null ) {
 			unset( $post_data['tax_input']['category'] );
 		}
 
+		$post_data['post_ID']        = $post_ID;
 		$post_data['post_type'] = $post->post_type;
 		$post_data['post_mime_type'] = $post->post_mime_type;
-		$post_data['guid'] = $post->guid;
 
 		foreach ( array( 'comment_status', 'ping_status', 'post_author' ) as $field ) {
 			if ( ! isset( $post_data[ $field ] ) ) {
@@ -547,14 +576,12 @@ function bulk_edit_posts( $post_data = null ) {
 			}
 		}
 
-		$post_data['ID'] = $post_ID;
-		$post_data['post_ID'] = $post_ID;
-
 		$post_data = _wp_translate_postdata( true, $post_data );
 		if ( is_wp_error( $post_data ) ) {
 			$skipped[] = $post_ID;
 			continue;
 		}
+		$post_data = _wp_get_allowed_postdata( $post_data );
 
 		$updated[] = wp_update_post( $post_data );
 
@@ -565,8 +592,8 @@ function bulk_edit_posts( $post_data = null ) {
 				unstick_post( $post_ID );
 		}
 
-		if ( isset( $post_data['post_format'] ) )
-			set_post_format( $post_ID, $post_data['post_format'] );
+		if ( isset( $shared_post_data['post_format'] ) )
+			set_post_format( $post_ID, $shared_post_data['post_format'] );
 	}
 
 	return array( 'updated' => $updated, 'skipped' => $skipped, 'locked' => $locked );
@@ -746,9 +773,10 @@ function wp_write_post() {
 	$translated = _wp_translate_postdata( false );
 	if ( is_wp_error($translated) )
 		return $translated;
+	$translated = _wp_get_allowed_postdata( $translated );
 
 	// Create the post.
-	$post_ID = wp_insert_post( $_POST );
+	$post_ID = wp_insert_post( $translated );
 	if ( is_wp_error( $post_ID ) )
 		return $post_ID;
 
@@ -1306,15 +1334,15 @@ function get_sample_permalink_html( $id, $new_title = null, $new_slug = null ) {
 			}
 		}
 
-		$post_name_html = '<span id="editable-post-name" title="' . $title . '">' . $post_name_abridged . '</span>';
-		$display_link = str_replace( array( '%pagename%', '%postname%' ), $post_name_html, urldecode( $permalink ) );
+		$post_name_html = '<span id="editable-post-name" title="' . $title . '">' . esc_html( $post_name_abridged ) . '</span>';
+		$display_link = str_replace( array( '%pagename%', '%postname%' ), $post_name_html, esc_html( urldecode( $permalink ) ) );
 		$pretty_permalink = str_replace( array( '%pagename%', '%postname%' ), $post_name, urldecode( $permalink ) );
 
 		$return =  '<strong>' . __( 'Permalink:' ) . "</strong>\n";
 		$return .= '<span id="sample-permalink" tabindex="-1">' . $display_link . "</span>\n";
 		$return .= '&lrm;'; // Fix bi-directional text display defect in RTL languages.
 		$return .= '<span id="edit-slug-buttons"><a href="#post_name" class="edit-slug button button-small hide-if-no-js" onclick="editPermalink(' . $id . '); return false;">' . __( 'Edit' ) . "</a></span>\n";
-		$return .= '<span id="editable-post-name-full">' . $post_name . "</span>\n";
+		$return .= '<span id="editable-post-name-full">' . esc_html( $post_name ) . "</span>\n";
 	}
 
 	if ( isset( $view_post ) ) {
@@ -1328,7 +1356,7 @@ function get_sample_permalink_html( $id, $new_title = null, $new_slug = null ) {
 				$pretty_permalink = $permalink;
 			}
 
-			$return .= "<span id='view-post-btn'><a href='" . $pretty_permalink . "' class='button button-small'>$view_post</a></span>\n";
+			$return .= "<span id='view-post-btn'><a href='" . esc_url( $pretty_permalink ) . "' class='button button-small'>$view_post</a></span>\n";
 		}
 	}
 
@@ -1627,6 +1655,7 @@ function wp_create_post_autosave( $post_data ) {
 	$post_data = _wp_translate_postdata( true, $post_data );
 	if ( is_wp_error( $post_data ) )
 		return $post_data;
+	$post_data = _wp_get_allowed_postdata( $post_data );
 
 	$post_author = get_current_user_id();
 

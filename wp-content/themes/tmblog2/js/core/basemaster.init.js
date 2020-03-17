@@ -27,14 +27,14 @@ var desktopMenu = function() {
     jQuery('ul.akkordeon > li > div').show();
 };
 var mouseleaveCloseMenu = function() {
-    if (jQuery(window).width() > '968') {
+    if (jQuery(window).width() > '1110') {
         jQuery('.menuitem.active').click();
         if (!jQuery('#LanguageSelector').hasClass('open')) jQuery('#fshare-collapsed').show();
     }
 };
 jQuery(document).ready(function ($) {
     jQuery('.navitem_description').click(function () { return false; });
-    if (jQuery(window).width() < 969) {
+    if (jQuery(window).width() < 1110) {
         jQuery(".mobile_no_link").removeAttr("href");
     }
     jQuery('.pushy.pushy-left').click(function () {
@@ -42,7 +42,7 @@ jQuery(document).ready(function ($) {
             jQuery(".pushy-submenu")
                 .addClass('pushy-submenu-closed')
                 .removeClass('pushy-submenu-open');
-            if (jQuery(window).width() < '968') {
+            if (jQuery(window).width() < '1110') {
                 var submenuOpen = $('.pushy-submenu.pushy-submenu-open');
                 if (submenuOpen != null) {
                     jQuery('.pushy-submenu').css('display', 'block');
@@ -53,7 +53,7 @@ jQuery(document).ready(function ($) {
         } 
     });
     //init Top Navigation Menu events
-    if (jQuery(window).width() >= '968') {
+    if (jQuery(window).width() >= '1110') {
         desktopMenu();
     } else {
         mobileMenu();
@@ -70,7 +70,7 @@ jQuery(document).ready(function ($) {
             jQuery(".pushy-submenu")
                 .addClass('pushy-submenu-closed')
                 .removeClass('pushy-submenu-open');
-            if (jQuery(window).width() < '968') {
+            if (jQuery(window).width() < '1110') {
                 var submenuOpen = jQuery('.pushy-submenu.pushy-submenu-open');
                 if (submenuOpen != null) {
                     jQuery('.pushy-submenu').css('display', 'block');
@@ -84,7 +84,7 @@ jQuery(document).ready(function ($) {
         mouseleaveCloseMenu();
     });
     jQuery('body').on("click", "a.nav_2nd_menu_link", function () {
-        if (jQuery(window).width() < '968') {
+        if (jQuery(window).width() < '1110') {
             jQuery('.pushy-link').trigger('click');
             jQuery('body').removeClass('pushy-open-left');
             var href = jQuery(this).attr('href');
@@ -99,7 +99,7 @@ jQuery(document).ready(function ($) {
     jQuery('.menuitem')
         .click(function () {
             var menuitem = jQuery(this);
-            if (jQuery(window).width() < '968') {
+            if (jQuery(window).width() < '1110') {
                 if (jQuery(jQuery(this)[0].parentNode).hasClass('pushy-submenu-closed')) {
                     jQuery('.pushy-submenu').hide();
                     jQuery(jQuery(this)[0].parentNode).show();
@@ -123,7 +123,7 @@ jQuery(document).ready(function ($) {
             }
         })
         .hover(function (event) {
-            if (jQuery(window).width() >= '968') {
+            if (jQuery(window).width() >= '1110') {
                 var menuitem = jQuery(this);
                 if (!menuitem.hasClass('active')) {
                     menuitem.click();
@@ -132,7 +132,7 @@ jQuery(document).ready(function ($) {
         });
 
     jQuery(window).resize(function () {
-        if (jQuery(window).width() >= '968') {
+        if (jQuery(window).width() >= '1110') {
             jQuery('.pushy-submenu').css('display', 'inline-block');
             desktopMenu();
         } else {

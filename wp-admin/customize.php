@@ -18,9 +18,11 @@ if ( ! current_user_can( 'customize' ) ) {
 
 wp_reset_vars( array( 'url', 'return' ) );
 $url = wp_unslash( $url );
+$url = esc_url_raw( $url );
 $url = wp_validate_redirect( $url, home_url( '/' ) );
 if ( $return ) {
 	$return = wp_unslash( $return );
+	$return = esc_url_raw( $return );
 	$return = wp_validate_redirect( $return );
 }
 if ( ! $return ) {
@@ -142,7 +144,7 @@ do_action( 'customize_controls_print_scripts' );
 			<div id="customize-info" class="accordion-section customize-info">
 				<div class="accordion-section-title" aria-label="<?php esc_attr_e( 'Customizer Options' ); ?>">
 					<span class="preview-notice"><?php
-						echo sprintf( __( 'You are customizing %s' ), '<strong class="panel-title site-title">' . get_bloginfo( 'name' ) . '</strong>' );
+						echo sprintf( __( 'You are customizing %s' ), '<strong class="panel-title site-title">' . get_bloginfo( 'name', 'display' ) . '</strong>' );
 					?></span>
 					<button class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>
 				</div>

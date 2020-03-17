@@ -98,13 +98,13 @@
                         </div>
                         <div class="langselector push">
                                 <div id="LanguageSelector" class="custom-select">
-                                <?php language_selector(array("en","engb","de","ru","fr","cs")); ?>
+                                <?php language_selector(array("en","engb","de","ru","fr","cs","es")); ?>
                             </div>
                         </div>
                         <nav class="pushy pushy-left">
                        
                             <div class="pushy-content">
-                                <ul><!--
+                                <ul class="all-menu-items"><!--
                                 --><li class="pushy-submenu"><a class="menuitem <?php echo get_locale();?>" id="navitem_solutions"><?php _e('Products', 'tmblog'); ?></a>
                                     <div id="navitem_solutions_menu">
                                         <ul class="dropdown-content akkordeon">
@@ -119,6 +119,7 @@
                                                         <li><a class="nav_2nd_menu_link" id="navitem_solutions_secure_hosting" href="<?php echo WEB_ROOT_URL?>/cloud-office.aspx#secure-hosting"><?php _e('Secure and reliable hosting', 'tmblog'); ?></a></li>
                                                         <li><a class="nav_2nd_menu_link" id="navitem_solutions_nonprofit" href="<?php echo WEB_ROOT_URL?>/nonprofit-organizations.aspx"><?php _e('Cloud for non-profits', 'tmblog'); ?></a></li>
                                                         <li><a class="nav_2nd_menu_link" target="_blank" href="https://personal.onlyoffice.com/"><?php _e('Cloud for personal use', 'tmblog'); ?></a></li>
+                                                        <li><a class="nav_2nd_menu_link signIn" target="_blank" href="<?php echo WEB_ROOT_URL?>/signin.aspx"><?php _e('Sign in', 'tmblog'); ?></a></li>
                                                     </ul>
                                                 </div>
                                             </li>
@@ -170,6 +171,9 @@
                                                 </div>
                                             </li>
                                         </ul>
+                                        <div class="latestReleasesBox">
+                                            <a href="<?php echo WEB_ROOT_URL?>/news.aspx"><?php _e('Latest Releases', 'tmblog'); ?></a>
+                                        </div>
                                     </div>
                                     </li><!--
                                 --><li class="pushy-submenu"><a class="menuitem <?php echo get_locale();?>" id="navitem_features"><?php _e('Apps', 'tmblog'); ?></a>
@@ -187,8 +191,9 @@
 
                                                     </div>
                                                     <span class="navitem_solutions"><a id="navitem_solutions_clients_apps" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/apps.aspx"><?php _e('Desktop Editors', 'tmblog'); ?></a></span>
-                                                    <span class="navitem_solutions"><a id="navitem_solutions_clients_mobile" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/mobile.aspx"><?php _e('Mobile Editors', 'tmblog'); ?></a></span>
-                                                    <span class="navitem_solutions"><a id="navitem_solutions_compare" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/document-editor-comparison.aspx"><?php _e('Compare office suites', 'tmblog'); ?></a></span>
+                                                    <span class="navitem_solutions"><a id="navitem_solutions_clients_ios" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/office-for-ios.aspx"><?php _e('Office for iOS', 'tmblog'); ?></a></span>
+                                                    <span class="navitem_solutions"><a id="navitem_solutions_clients_android" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/office-for-android.aspx"><?php _e('Office for Android', 'tmblog'); ?></a></span>
+                                                    <span class="navitem_solutions"><a id="navitem_solutions_clients_mobile" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/mobile-projects.aspx"><?php _e('Mobile Projects', 'tmblog'); ?></a></span>
                                                 </li>
                                                 <li id="navitem_comserver_third_level_menu">
                                                     <a id="navitem_features_comserver" class="dropdown-item mobile_no_link" href="<?php echo WEB_ROOT_URL?>/features.aspx#documents"><?php _e('Collaboration Platform', 'tmblog'); ?></a>
@@ -231,22 +236,24 @@
                                         </div>
                                     </li><!--
                                 --><li class="pushy-submenu"><a class="menuitem <?php echo get_locale();?>" id="navitem_download"><?php _e('Download', 'tmblog'); ?></a>
-                                        <div id="navitem_download_menu">
+                                        <div class="navitem_download_menu" id="navitem_download_menu">
                                             <ul class="dropdown-content">
                                                 <li class="pushy-link" id="navitem_downloadserver_third_level_menu"><a id="navitem_download_enterprise" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/enterprise-edition-free.aspx?from=downloadenterprisemenu"><?php _e('Enterprise Edition', 'tmblog'); ?></a></li>
                                                 <li class="pushy-link"><a id="navitem_download_connectors" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/connectors-request.aspx?from=downloadintegrationmenu"><?php _e('Integration Edition', 'tmblog'); ?></a></li>
                                                 <li class="pushy-link"><a id="navitem_download_integration" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/developer-edition-request.aspx?from=downloaddevelopermenu"><?php _e('Developer Edition', 'tmblog'); ?></a></li>
                                                 <li class="pushy-link"><a id="navitem_download_desktop" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/download-desktop.aspx"><?php _e('Desktop Editors', 'tmblog'); ?></a></li>
+                                                <li class="pushy-link"><a id="navitem_download_doc_builder" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/download-document-builder.aspx"><?php _e('Document Builder', 'tmblog'); ?></a></li>
                                             </ul>
                                         </div>
                                     </li><!--
                                 --><li class="pushy-submenu"><a class="menuitem <?php echo get_locale();?>" id="navitem_partners"><?php _e('Partnership', 'tmblog'); ?></a>
-                                    <div id="navitem_partnership_menu">
+                                    <div class="navitem_partnership_menu" id="navitem_partnership_menu">
                                         <ul class="dropdown-content">
                                             <li class="pushy-link"><a id="navitem_resellers" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/resellers.aspx"><?php _e('For Resellers', 'tmblog'); ?></a></li>
                                             <li class="pushy-link"><a id="navitem_hosters" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/affiliates.aspx"><?php _e('For Affiliates', 'tmblog'); ?></a></li>
                                             <li class="pushy-link"><a id="navitem_developers" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/partnership-developers.aspx"><?php _e('For Developers', 'tmblog'); ?></a></li>
                                             <li class="pushy-link"><a id="navitem_find_partners" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/find-partners.aspx"><?php _e('Find partners', 'tmblog'); ?></a></li>
+                                            <li class="pushy-link"><a id="navitem_sub_request" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/partnership-request.aspx"><?php _e('Submit request', 'tmblog'); ?></a></li>
                                         </ul>
                                     </div>
                                     </li><!--
@@ -256,16 +263,21 @@
                                                 <li class="pushy-link"><a id="navitem_about_about" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/about.aspx"><?php _e('About ONLYOFFICE', 'tmblog'); ?></a></li>
                                                 <li class="pushy-link"><a id="navitem_about_blog" class="dropdown-item" target="_blank" href="<?php echo WEB_ROOT_URL?>/blog/"><?php _e('Blog', 'tmblog'); ?></a></li>
                                                 <li class="pushy-link"><a id="navitem_about_contribute" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/contribute.aspx"><?php _e('Contribute', 'tmblog'); ?></a></li>
+                                                <li class="pushy-link"><a id="navitem_about_stories" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/customers.aspx"><?php _e('Success stories', 'tmblog'); ?></a></li>
                                                 <li class="pushy-link"><a id="navitem_about_casestudies" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/case-studies.aspx"><?php _e('Case studies', 'tmblog'); ?></a></li>
                                                 <li class="pushy-link"><a id="navitem_about_customers" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/customers.aspx"><?php _e('Customers', 'tmblog'); ?></a></li>
                                                 <li class="pushy-link"><a id="navitem_about_awards" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/awards.aspx"><?php _e('Awards', 'tmblog'); ?></a></li>
                                                 <li class="pushy-link"><a id="navitem_about_events" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/events.aspx"><?php _e('Events', 'tmblog'); ?></a></li>
+                                                <li class="pushy-link"><a id="navitem_about_webinars" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/webinars.aspx"><?php _e('Webinars', 'tmblog'); ?></a></li>
+                                                <li class="pushy-link"><a id="navitem_about_press" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/press-downloads.aspx"><?php _e('Press downloads', 'tmblog'); ?></a></li>
                                                 <li class="pushy-link"><a id="navitem_about_contacts" class="dropdown-item" href="<?php echo WEB_ROOT_URL?>/contacts.aspx"><?php _e('Contacts', 'tmblog'); ?></a></li>
                                             </ul>
                                         </div>
-                                    </li><!--
-                                --><li><a class="singin menuitem" href="<?php echo WEB_ROOT_URL?>/signin.aspx"><?php _e('Sign in', 'tmblog'); ?></a></li><!--
-                                --></ul>
+                                    </li>
+                                <li class="phone_wrapper">
+                                    <a class="call_phone default" title="+1 (972) 301-8440" href="tel:+19723018440">+1 (972) 301-8440</a>
+                                    <a class="singin menuitem" href="<?php echo WEB_ROOT_URL?>/enterprise-edition-free.aspx?from=header"><?php _e('Get onlyoffice', 'tmblog'); ?></a></li>
+                                </ul>
                             </div>
                             
                         </nav>

@@ -5,6 +5,7 @@ WP-Cache Config Sample File
 See wp-cache.php for author details.
 */
 
+$wpsc_version = 169;
 $wp_cache_debug_username = 'df4ec855fee16e3bdaced2e807508ed4';
 $dismiss_readable_warning = 1; //Added by WP-Cache Manager
 $wp_super_cache_comments = '1'; //Added by WP-Cache Manager

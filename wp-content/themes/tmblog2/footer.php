@@ -78,9 +78,6 @@
                         <li><a rel="nofollow" target="_blank" onmouseup="PageTrack('GoTo_linkedin');" href="https://www.linkedin.com/groups/ONLYOFFICE-6726380" title="Follow us on LinkedIn" class="linkedin">
                                 <label class="social_grey_in" title="LinkedIn"></label>
                             </a></li>
-                        <li><a rel="nofollow" target="_blank" onmouseup="PageTrack('GoTo_google');" href="https://plus.google.com/+Onlyoffice_Community" title="Follow us on Google+" class="google">
-                                <label class="social_grey_g" title="Google+"></label>
-                            </a></li>
                         <li><a rel="nofollow" target="_blank" onmouseup="PageTrack('GoTo_youtube');" href="https://www.youtube.com/user/onlyofficeTV" title="Follow us on YouTube" class="youtube">
                                 <label class="social_grey_tube" title="YouTube"></label>
                             </a></li>
@@ -103,141 +100,7 @@
             </div>
         </div>
     </div>
-          <!-- <div class="footercolor">
-        <div class="narrowfooter">
-            <div class="bottomlines">
-
-                <!--
-                <div class="footer_menu emailus">
-                    <h6><?php _e('Contact Us'); ?></h6>
-                    <p>
-                        <?php _e('Sales Questions'); ?>
-                        <a href="mailto:sales@onlyoffice.com">sales@onlyoffice.com</a>
-                    </p>
-                    <p>
-                        <a target="_blank" href="https://cloud.onlyoffice.org/"><?php _e('SaaS Forum'); ?></a>
-                        <a target="_blank" href="https://dev.onlyoffice.org/"><?php _e('Server Forum'); ?></a>
-                    </p>
-                    <a target="_blank" href="https://support.onlyoffice.com" class="launch footerbutton"><?php _e('Support'); ?></a>
-                </div>
-                <div class="footer_menu">
-                    <h6><?php _e('Request a Call'); ?></h6>
-                    <p><?php _e('You can also have a telephone inquiry on any issue related to ONLYOFFICE&trade;. Complete a short form and be sure to receive a call from us at the specified time.'); ?></p>
-                    <a class="launch footerbutton" href="https://www.onlyoffice.com/call-back-form.aspx"><?php _e('Send Request'); ?></a>
-                </div>
-                <div class="footer_menu help">
-                    <h6><?php _e('Get Info'); ?></h6>
-                    <p><a href="https://helpcenter.onlyoffice.com/faq/faq.aspx"><?php _e('FAQ'); ?></a></p>
-                    <p><a href="https://helpcenter.onlyoffice.com/gettingstarted.aspx"><?php _e('Getting Started'); ?></a></p>
-                    <p><a href="https://helpcenter.onlyoffice.com/video.aspx"><?php _e('Video Guides'); ?></a></p>
-                    <p><a href="https://helpcenter.onlyoffice.com/guides.aspx"><?php _e('User Guides'); ?></a></p>
-                    <a class="launch footerbutton" href="<?php echo WEB_ROOT_URL?>/demo-order.aspx"><?php _e('Order demo'); ?></a>
-                </div>
-             
-                <div class="footer_menu">
-                    <h6><?php _e('Developers'); ?></h6>
-                    <p><a target="_blank" href="<?php echo WEB_ROOT_URL?>/developer-edition.aspx"><?php _e('Developer Edition'); ?></a></p>
-                    <p><a target="_blank" href="<?php echo WEB_ROOT_URL?>/document-builder.aspx"><?php _e('Document Builder'); ?></a></p>
-                    <p><a target="_blank" id="navitem_api" href="https://api.onlyoffice.com/"><?php _e('API'); ?></a></p>
-                </div>
-                <div class="footer_menu">
-                    <h6><?php _e('Offers'); ?></h6>
-                    <p><a target="_blank" href="<?php echo WEB_ROOT_URL?>/education.aspx"><?php _e('Education'); ?></a></p>
-                    <p><a target="_blank" href="https://personal.onlyoffice.com"><?php _e('Personal Use'); ?></a></p>
-                    <p><a target="_blank" href="<?php echo WEB_ROOT_URL?>/nonprofit-organizations.aspx"><?php _e('Nonprofits'); ?></a></p>
-                </div>
-                <div class="footer_menu">
-                    <h6><?php _e('Features'); ?></h6>
-                    <p><a target="_blank" href="<?php echo WEB_ROOT_URL?>/features.aspx#editors"><?php _e('Online Editors'); ?></a></p>
-                    <p><a target="_blank" href="<?php echo WEB_ROOT_URL?>/features.aspx#documents"><?php _e('Document Management'); ?></a></p>
-                    <p><a target="_blank" href="<?php echo WEB_ROOT_URL?>/features.aspx#mail"><?php _e('Mail'); ?></a></p>
-                    <p><a target="_blank" href="<?php echo WEB_ROOT_URL?>/features.aspx#crm"><?php _e('CRM'); ?></a></p>
-                    <p><a target="_blank" href="<?php echo WEB_ROOT_URL?>/features.aspx#projects"><?php _e('Projects'); ?></a></p>
-                    <p><a target="_blank" href="<?php echo WEB_ROOT_URL?>/features.aspx#calendar"><?php _e('Calendar'); ?></a></p>
-                    <p><a target="_blank" href="<?php echo WEB_ROOT_URL?>/features.aspx#network"><?php _e('Community'); ?></a></p>
-                </div> 
-                <div class="footer_menu emailus">
-                    <h6><?php _e('Contact Us'); ?></h6>
-                    <p>
-                        <?php _e('Sales Questions'); ?>
-                        <a href="mailto:sales@onlyoffice.com">sales@onlyoffice.com</a>
-                    </p>
-                    <p>
-                        <?php _e('Partner Inquiries'); ?>
-                        <a href="mailto:partners@onlyoffice.com">partners@onlyoffice.com</a>
-                    </p>
-                    <p>
-                        <?php _e('Press Inquiries'); ?>
-                        <a href="mailto:press@onlyoffice.com">press@onlyoffice.com</a>
-                    </p>
-                    <p><a class="footer_link" target="_blank" href="<?php echo WEB_ROOT_URL?>/call-back-form.aspx"><?php _e('Request a Call'); ?></a></p>
-                    
-                </div>
-                <div class="footer_menu">
-                    <h6><?php _e('Support'); ?></h6>
-                    <p><a target="_blank" href="https://cloud.onlyoffice.org/"><?php _e('SaaS Forum'); ?></a></p>
-                    <p><a target="_blank" href="https://dev.onlyoffice.org/"><?php _e('Server Forum'); ?></a></p>
-                    <p><a target="_blank" href="https://support.onlyoffice.com"><?php _e('Support Contact Form'); ?></a></p>
-                    <p><a target="_blank" href="<?php echo WEB_ROOT_URL?>/demo-order.aspx"><?php _e('Order demo'); ?></a></p>
-                </div>
-                <div class="footer_menu help">
-                    <h6><?php _e('Get Info'); ?></h6>
-                    <p><a target="_blank" href="https://helpcenter.onlyoffice.com/faq/faq.aspx"><?php _e('FAQ'); ?></a></p>
-                    <p><a target="_blank" href="https://helpcenter.onlyoffice.com/index.aspx"><?php _e('Getting Started'); ?></a></p>
-                    <p><a target="_blank" href="https://helpcenter.onlyoffice.com/video.aspx"><?php _e('Video Guides'); ?></a></p>
-                    <p><a target="_blank" href="<?php echo WEB_ROOT_URL?>/legalterms.aspx"><?php _e('Legal Notice'); ?></a></p>
-                </div>
-
-            </div>
-            <div class="BaseFooter clearFix">
-                <div class="SocialLinks">
-                    <span><?php _e('Follow us on:'); ?></span>
-                    <ul class="ListSocLink">
-                        <li><a target="_blank" href="https://www.facebook.com/pages/OnlyOffice/833032526736775" onmouseup="PageTrack('GoTo_facebook');" title="Follow us on Facebook" class="faceBook">
-                                <label class="social_grey_fb" title="Facebook"></label>
-                            </a></li>
-                        <li><a rel="nofollow" target="_blank" onmouseup="PageTrack('GoTo_twitter');" href="https://twitter.com/ONLY_OFFICE" title="Follow us on Twitter" class="twitter">
-                                <label class="social_grey_twi" title="Twitter"></label>
-                            </a></li>
-                        <li><a rel="nofollow" target="_blank" onmouseup="PageTrack('GoTo_linkedin');" href="https://www.linkedin.com/groups/ONLYOFFICE-6726380" title="Follow us on LinkedIn" class="linkedin">
-                                <label class="social_grey_in" title="LinkedIn"></label>
-                            </a></li>
-                        <li><a rel="nofollow" target="_blank" onmouseup="PageTrack('GoTo_google');" href="https://plus.google.com/+Onlyoffice_Community" title="Follow us on Google+" class="google">
-                                <label class="social_grey_g" title="Google+"></label>
-                            </a></li>
-                        <li><a rel="nofollow" target="_blank" onmouseup="PageTrack('GoTo_youtube');" href="https://www.youtube.com/user/onlyofficeTV" title="Follow us on YouTube" class="youtube">
-                                <label class="social_grey_tube" title="YouTube"></label>
-                            </a></li>
-                        <li><a rel="nofollow" target="_blank" onmouseup="PageTrack('GoTo_blog');" href="https://www.onlyoffice.com/blog" title="Read our blog" class="blog">
-                                <label title="Blog" class="social_grey_blog"></label>
-                            </a></li>
-                        <li><a rel="nofollow" target="_blank" onmouseup="PageTrack('GoTo_medium');" href="https://medium.com/onlyoffice" title="Follow us on Medium" class="medium">
-                                <label title="Medium" class="social_grey_medium"></label>
-                            </a></li>
-                    </ul>
-                </div>
-                <div class="copyReserved">&copy; Ascensio System SIA <?php echo date("Y"); ?>. <?php _e('All rights reserved'); ?></div>
-
-         
-                <div class="bottommenu">
-                    <ul>
-                        <li><a href="https://personal.onlyoffice.com/" id="navitem_personal_bottom" target="_blank"><?php _e('Personal Office'); ?></a></li>
-
-                        <li><a href="https://affiliates.onlyoffice.com/" id="navitem_affiliates_bottom"><?php _e('Affiliate Program'); ?></a></li>
-                        <li><a href="<?php echo WEB_ROOT_URL?>/saas.aspx" id="navitem_prices_bottom"><?php _e('Prices'); ?></a></li>
-                        <li><a href="https://www.onlyoffice.org/sources" id="navitem_security" target="_blank"><?php _e('Open Source'); ?></a></li>
-                        <li><a href="<?php echo WEB_ROOT_URL?>/legalterms.aspx" id="navitem_privacy"><?php _e('Legal Notice'); ?></a></li>
-                        <li><a href="https://api.onlyoffice.com/" id="navitem_api"><?php _e('API'); ?></a></li>
-                    </ul>
-                </div>
-                
-
-            </div>
-        </div>
-    </div>-->
 </footer>
-
-    <script type="text/javascript" src="https://www.google.com/recaptcha/api/js/recaptcha_ajax.js?legacy"></script>
 
     <!-- Google.AdSense -->
     <script type="text/javascript" src="https://ssl.google-analytics.com/ga.js"></script>
@@ -257,14 +120,8 @@
     <noscript><div style="position:absolute"><img src="https://mc.yandex.ru/watch/1627447" alt="" /></div></noscript>
     <!-- /Yandex.Metrika -->
 
-    <!-- Google.Plus -->
-    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-    <!-- Google.Plus -->
 
     <?php add_action( 'wp_footer', 'add_pushy_js' ); ?>
-    <!-- LinkedIn -->
-    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
-    <!-- LinkedIn -->
 
     <?php wp_footer(); ?>
  </body>

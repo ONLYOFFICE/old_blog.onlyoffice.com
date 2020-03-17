@@ -974,6 +974,8 @@ function wp_ajax_replyto_comment( $action ) {
 			if ( wp_create_nonce( 'unfiltered-html-comment' ) != $_POST['_wp_unfiltered_html_comment'] ) {
 				kses_remove_filters(); // start with a clean slate
 				kses_init_filters(); // set up the filters
+				remove_filter( 'pre_comment_content', 'wp_filter_post_kses' );
+				add_filter( 'pre_comment_content', 'wp_filter_kses' );
 			}
 		}
 	} else {
@@ -1893,7 +1895,7 @@ function wp_ajax_upload_attachment() {
 			'success' => false,
 			'data'    => array(
 				'message'  => __( "You don't have permission to upload files." ),
-				'filename' => $_FILES['async-upload']['name'],
+				'filename' => esc_html( $_FILES['async-upload']['name'] ),
 			)
 		) );
 
@@ -1907,7 +1909,7 @@ function wp_ajax_upload_attachment() {
 				'success' => false,
 				'data'    => array(
 					'message'  => __( "You don't have permission to attach files to this post." ),
-					'filename' => $_FILES['async-upload']['name'],
+					'filename' => esc_html( $_FILES['async-upload']['name'] ),
 				)
 			) );
 
@@ -1917,7 +1919,11 @@ function wp_ajax_upload_attachment() {
 		$post_id = null;
 	}
 
-	$post_data = isset( $_REQUEST['post_data'] ) ? $_REQUEST['post_data'] : array();
+	$post_data = ! empty( $_REQUEST['post_data'] ) ? _wp_get_allowed_postdata( _wp_translate_postdata( false, (array) $_REQUEST['post_data'] ) ) : array();
+
+	if ( is_wp_error( $post_data ) ) {
+		wp_die( $post_data->get_error_message() );
+	}
 
 	// If the context is custom header or background, make sure the uploaded file is an image.
 	if ( isset( $post_data['context'] ) && in_array( $post_data['context'], array( 'custom-header', 'custom-background' ) ) ) {
@@ -1927,7 +1933,7 @@ function wp_ajax_upload_attachment() {
 				'success' => false,
 				'data'    => array(
 					'message'  => __( 'The uploaded file is not a valid image. Please try again.' ),
-					'filename' => $_FILES['async-upload']['name'],
+					'filename' => esc_html( $_FILES['async-upload']['name'] ),
 				)
 			) );
 
@@ -1942,7 +1948,7 @@ function wp_ajax_upload_attachment() {
 			'success' => false,
 			'data'    => array(
 				'message'  => $attachment_id->get_error_message(),
-				'filename' => $_FILES['async-upload']['name'],
+				'filename' => esc_html( $_FILES['async-upload']['name'] ),
 			)
 		) );
 
@@ -2651,7 +2657,7 @@ function wp_ajax_get_revision_diffs() {
 	if ( ! $post = get_post( (int) $_REQUEST['post_id'] ) )
 		wp_send_json_error();
 
-	if ( ! current_user_can( 'read_post', $post->ID ) )
+	if ( ! current_user_can( 'edit_post', $post->ID ) )
 		wp_send_json_error();
 
 	// Really just pre-loading the cache here.

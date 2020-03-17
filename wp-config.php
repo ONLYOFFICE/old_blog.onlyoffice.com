@@ -16,12 +16,9 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-
-
-define( 'WPCACHEHOME', 'D:\svnblog\TeamLabBlog\wp-content\plugins\wp-super-cache/' );
 define('WP_CACHE', true);
-
-define('DB_NAME', 'baseblog');
+define( 'WPCACHEHOME', 'E:/git/blog/wp-content/plugins/wp-super-cache/' ); //Added by WP-Cache Manager
+define('DB_NAME', 'teamlab_blog');
 
 /** MySQL database username */
 define('DB_USER', 'root');
@@ -30,7 +27,7 @@ define('DB_USER', 'root');
 define('DB_PASSWORD', 'root');
 
 /** MySQL hostname */
-define('DB_HOST', '');
+define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -40,8 +37,25 @@ define('DB_COLLATE', '');
 
 define('WEB_ROOT_URL', 'http://192.168.3.164:81/');
 
-define('WEB_SAAS_DOMAIN', 'teamlab.com');
-define('WEB_PERSONAL_DOMAIN', 'personal.onlyoffice.com');
+$GLOBALS['WEB_BLOG_FOLDER_URL'] = '/blog';
+
+/**#@+
+ * Authentication Unique Keys and Salts.
+ *
+ * Change these to different unique phrases!
+ * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
+ * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
+ *
+ * @since 2.6.0
+ */
+define('AUTH_KEY',         'someKey');
+define('SECURE_AUTH_KEY',  'someKey');
+define('LOGGED_IN_KEY',    'someKey');
+define('NONCE_KEY',        'someKey');
+define('AUTH_SALT',        'someKey');
+define('SECURE_AUTH_SALT', 'someKey');
+define('LOGGED_IN_SALT',   'someKey');
+define('NONCE_SALT',       'someKey');
 
 /**#@-*/
 
@@ -70,7 +84,9 @@ define ('WPLANG', '');
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-define('WP_DEBUG', false);
+define( 'WP_DEBUG', false );
+define( 'SCRIPT_DEBUG', false );
+
 
 /* That's all, stop editing! Happy blogging. */
 

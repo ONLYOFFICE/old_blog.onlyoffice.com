@@ -15,13 +15,19 @@
   text-align: left;
   font-family: "Open Sans", sans-serif, Arial;
 }
+
+.navitem_solutions_menu{
+  left:0;
+}
 .pushy {
   position: absolute;
   top: 0;
-  right: 35px;
+  right: 0;
   margin: 0;
-  padding: 0;
+  padding: 0 361px 0 180px;
   height: 71px;
+  width: calc(100% - 541px);
+  text-align: center;
 }
 nav > div{
   visibility: inherit;
@@ -49,9 +55,11 @@ nav > div > ul,
 nav > div > ul > li {
   display: inline-block;
   list-style-type: none;
+  height: 100%;
+  position: relative;
 }
 nav > div > ul > li > a {
-  padding: 13px;
+  padding: 5px;
   display: inline-block;
   height: 29px;
   border-bottom-color: #f94a0c;
@@ -65,7 +73,7 @@ nav > div > ul a.singin {
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  margin: -18px 15px 0;
+  margin: 0px 15px 0;
   padding: 13px 25px;
   height: auto;
 }
@@ -109,6 +117,10 @@ a.singin {
   background: #fff;
 }
 
+#navitem_partnership_menu.navitem_partnership_menu, #navitem_download_menu.navitem_download_menu{
+  /*right: 0;*/
+}
+
 #navitem_about_menu .dropdown-content li,
 #navitem_download_menu .dropdown-content li,
 #navitem_partnership_menu .dropdown-content li,
@@ -131,6 +143,7 @@ a.dropdown-item {
   padding: 0 25px;
   text-decoration: none;
   white-space: nowrap;
+  text-align: left;
 }
 a.dropdown-item:hover {
   background-color: #F7F7F7;
@@ -150,13 +163,18 @@ a.dropdown-item:hover {
 #navitem_features,
 #navitem_prices,
 a.singin {
-  color: #555555;
+  color: #333333;
   text-decoration: none;
   font-size: 12px;
   line-height: 12px;
   font-family: 'Open Sans', sans-serif, Arial;
   font-weight: 600;
   vertical-align: middle;
+  display: inline-flex;
+  align-content: center;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
 }
 #navitem_about:hover,
 #navitem_download:hover,
@@ -251,6 +269,43 @@ a.singin.active:hover {
   margin: 0;
   padding: 0;
 }
+
+.latestReleasesBox{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color:white;
+}
+.latestReleasesBox:before{
+  width: 95%;
+  height: 0;
+  margin: 0 auto;
+  border-top: 1px solid
+  #efefef;
+  display: block;
+  content: '';
+}
+
+.latestReleasesBox a{
+  display: block;
+  background: none;
+  border: 0;
+  color:
+  #ff642e;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 36px;
+  margin: 0;
+  padding: 0 25px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.latestReleasesBox a:hover{
+  background-color: #f7f7f7;
+}
+
 .third-level-content li a {
         display: block;
         background: none;
@@ -313,6 +368,7 @@ a#banners {
     line-height: 1.4em;
     text-transform: none;
     padding: 0 25px 20px;
+    text-align:left;
 }
 ul.navitem_2nd_menu {
     padding: 0 0 10px;
@@ -330,6 +386,11 @@ ul.navitem_2nd_menu li a.nav_2nd_menu_link {
   margin: 0;
   padding: 8px 25px;
   text-decoration: none;
+  text-align:left;
+}
+
+ul.navitem_2nd_menu li a.nav_2nd_menu_link.signIn{
+  color: #ff642e;
 }
 ul.navitem_2nd_menu li a.nav_2nd_menu_link:hover {
     background-color: #F7F7F7;
@@ -372,7 +433,7 @@ div.custom-select div.selector {
   color: #ff642e;
 }
 
-@media screen and (min-width: 969px){
+@media screen and (min-width: 1110px){
   #navitem_features_menu .dropdown-content, 
   #navitem_about_menu .dropdown-content, 
   #navitem_download_menu .dropdown-content, 
@@ -462,23 +523,52 @@ div.custom-select div.selector {
       z-index: 1999;
       border: 0 none;
       border-bottom: 1px solid #ff642e;
-      top: 71px;
+      top: 70px;
       box-shadow: 0 40px 40px rgba(0,0,0,.15);
       -moz-box-shadow: 0 40px 40px rgba(0,0,0,.15);
       -webkit-box-shadow: 0 40px 40px rgba(0,0,0,.15);
+      left:0;
+      right: auto;
   }
+
+  nav > div > ul.all-menu-items > li:nth-child(1) {
+    padding-left: 3vw;
+}
   #navitem_features_menu .dropdown-content>li {
       display: table-cell;
       width: 295px;
       border-right: 1px solid #efefef;
   }
 }
-@media screen and (max-width: 969px){
+@media screen and (max-width: 1350px){
+  nav > div > ul.all-menu-items > li:nth-child(1) {
+    padding-left: 1vw;
+  }
+}
+@media screen and (max-width: 1110px){
+  nav > div > ul.all-menu-items > li:nth-child(1) {
+    padding-left: 0vw;
+}
   header {
       width: 100%;
       padding: 0;
       z-index: 10000;
       height: 40px;
+  }
+
+  .phone_wrapper{
+    right: auto;
+    left: 0;
+    bottom: 0;
+    top: auto;
+    position: fixed;
+    width: 100%;
+    height: 140px;
+    background-color: white;
+  }
+  
+  #navitem_about{
+    border:none;
   }
   .ham_menu {
       cursor: pointer;
@@ -507,6 +597,8 @@ div.custom-select div.selector {
       z-index: 10000000;
       height: 40px;
       background-size: auto 24px;
+      margin: auto;
+      background-position: 50%;
   }
   nav>div ul li ul {
     color: #666;
@@ -536,6 +628,7 @@ div.custom-select div.selector {
       font-weight: 600;
       font-size: 12px;
       line-height: 10px;
+      border:none;
   }
   nav>div ul li a.menuitem {
       color: #666;
@@ -677,12 +770,17 @@ div.custom-select div.selector {
       display: block;
   }
   nav>div ul li a.menuitem.singin {
-      color: #ff642e !important;
+      color: #333333 !important;
       font-weight: 600 !important;
       margin: 15px;
       padding: 15px 24px;
       display: inline-block;
-      border-color: #ff642e !important;
+      border-color: #333333 !important;
+      float: none;
+      margin: 0 0 0 19px;
+      position: absolute;
+      left: 0;
+      bottom: 80px;
   }
   #navitem_blockchain:before, nav>div ul li a.menuitem.singin:before {
       display: none;

@@ -1,4 +1,4 @@
-@media screen and (max-width: 969px) {
+@media screen and (max-width: 1110px) {
   .pushy {
     position: fixed;
     width: 300px;
@@ -17,8 +17,20 @@
     text-decoration: none;
     outline: 0;
   }
+  .pushy a.call_phone{
+    padding: 18px 20px 9px;
+    font-weight: 400;
+    line-height: 10px;
+    width: calc(100% - 40px);
+    background-color: #f6f6f6;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
   .pushy.pushy-left {
     left: 0;
+    padding: 0;
+    text-align: left;
   }
   .pushy.pushy-right {
     right: 0;

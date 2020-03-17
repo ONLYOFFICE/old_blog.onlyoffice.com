@@ -1,0 +1,86 @@
+<?php
+die( "Please use the viewer" );
+?><pre>
+<?php // END HEADER ?>
+13:08:23 10728 /blog/ wp_cache_replace_line: setting not changed - $wp_cache_debug_log = 'c4e55d0e79518f1de0985fef41625223.txt';
+13:08:23 10728 /blog/ wp_cache_replace_line: setting not changed - $wp_cache_debug_username = 'df4ec855fee16e3bdaced2e807508ed4';
+13:08:23 10728 /blog/ Created mutex lock on filename: E:\git\blog/wp-content/cache/wp_cache_mutex.lock
+13:08:24 10728 /blog/ Setting up WordPress actions
+13:08:24 10728 /blog/ wpsc_is_caching_user_disabled: false
+13:08:24 10728 /blog/ Created output buffer
+13:08:24 10728 /blog/ wp_cache_get_cookies_values: return: 
+13:08:24 10728 /blog/ wpcache_do_rebuild: doing rebuild for E:\git\blog/wp-content/cache/supercache/localhost/blog/
+13:08:24 10728 /blog/ wpcache_do_rebuild: exiting as directory is not a directory: E:\git\blog/wp-content/cache/supercache/localhost/blog/
+13:08:24 10728 /blog/ Output buffer callback
+13:08:24 10728 /blog/ grabbing lock using flock()
+13:08:24 10728 /blog/ wp_cache_get_cookies_values: return: 
+13:08:24 10728 /blog/ Anonymous user detected. Only creating Supercache file.
+13:08:24 10728 /blog/ wpsc_is_caching_user_disabled: false
+13:08:24 10728 /blog/ wp_cache_get_cookies_values: return: 
+13:08:24 10728 /blog/ wp_cache_check_mobile: 
+13:08:24 10728 /blog/ Writing non-gzipped buffer to supercache file.
+13:08:26 10728 /blog/ Renamed temp supercache file to E:\git\blog\wp-content\cache\supercache\localhost\blog/index.html
+13:08:26 10728 /blog/ releasing lock using flock()
+13:08:26 10728 /blog/ Sending buffer to browser
+13:08:26 10728 /blog/ wp_cache_shutdown_callback: collecting meta data.
+13:08:26 10728 /blog/ Did not write meta file: meta-wp-cache-49647e580542f1c7aa9bf36ad9a8057e.php
+supercacheonly: 1
+wp_cache_not_logged_in: 0
+new_cache:1
+13:08:49 10728 /blog/ wpsc_is_caching_user_disabled: false
+13:08:49 10728 /blog/ wp_cache_get_cookies_values: return: 
+13:08:49 10728 /blog/ wp_cache_check_mobile: localhost:8181/blog/
+13:08:49 10728 /blog/ supercache dir: E:\git\blog/wp-content/cache/supercache/localhost/blog/
+13:08:49 10728 /blog/ wp_cache_check_mobile: 
+13:08:49 10728 /blog/ wp_cache_get_cookies_values: return: 
+13:08:49 10728 /blog/ Fetched static page data from supercache file using PHP. File: E:\git\blog/wp-content/cache/supercache/localhost/blog/index.html
+14:44:21 12728 /blog/ wpsc_is_caching_user_disabled: false
+14:44:22 12728 /blog/ wp_cache_get_cookies_values: return: 
+14:44:22 12728 /blog/ wp_cache_check_mobile: 192.168.3.164:8181/blog/
+14:44:22 12728 /blog/ supercache dir: E:\git\blog/wp-content/cache/supercache/192.168.3.164/blog/
+14:44:22 12728 /blog/ wp_cache_check_mobile: 
+14:44:22 12728 /blog/ No Super Cache file found for current URL: E:\git\blog/wp-content/cache/supercache/192.168.3.164/blog/index.html
+14:44:42 12728 /blog/ wp_cache_get_cookies_values: return: 
+14:44:42 12728 /blog/ wp_cache_check_mobile: 192.168.3.164:8181/blog/
+14:44:42 12728 /blog/ In WP Cache Phase 2
+14:44:42 12728 /blog/ Created mutex lock on filename: E:\git\blog/wp-content/cache/wp_cache_mutex.lock
+14:44:42 12728 /blog/ Setting up WordPress actions
+14:44:42 12728 /blog/ wpsc_is_caching_user_disabled: false
+14:44:42 12728 /blog/ Created output buffer
+14:44:42 12728 /blog/ wp_cache_get_cookies_values: return: 
+14:44:42 12728 /blog/ wpcache_do_rebuild: doing rebuild for E:\git\blog/wp-content/cache/supercache/192.168.3.164/blog/
+14:44:42 12728 /blog/ wpcache_do_rebuild: exiting as directory is not a directory: E:\git\blog/wp-content/cache/supercache/192.168.3.164/blog/
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 wp_cache_get_cookies_values: return: 
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 wp_cache_check_mobile: 192.168.3.164:8181
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 In WP Cache Phase 2
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 Created mutex lock on filename: E:\git\blog/wp-content/cache/wp_cache_mutex.lock
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 Setting up WordPress actions
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 Not caching wp-admin requests.
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 maybe_stop_gc: GC flag not found. GC will go ahead..
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 wp_cache_gc_cron: Set GC Flag. (E:\git\blog/wp-content/cache/192.168.3.164:81/blog_wp_cache_gc.txt)
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 Cache garbage collection.
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 grabbing lock using flock()
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 Cleaning expired cache files in E:\git\blog/wp-content/cache/
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 Deleting E:\git\blog/wp-content/cache/view_c4e55d0e79518f1de0985fef41625223.txt, older than 1800 seconds
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 Doing GC on supercache dir: E:\git\blog/wp-content/cache/supercache
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 prune_super_cache: deleted E:\git\blog\wp-content\cache\supercache\localhost\blog\index.html
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 gc: could not delete E:\git\blog\wp-content\cache\supercache/localhost as it's not empty: blog
+14:44:48 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 releasing lock using flock()
+14:44:49 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 GC completed. GC flag deleted.
+14:44:49 13672 /blog/wp-cron.php?doing_wp_cron=1584456288.1198139190673828125000 scheduled wp_cache_gc for 10 seconds time.
+14:44:54 12728 /blog/ Output buffer callback
+14:44:54 12728 /blog/ grabbing lock using flock()
+14:44:54 12728 /blog/ wp_cache_get_cookies_values: return: 
+14:44:54 12728 /blog/ Anonymous user detected. Only creating Supercache file.
+14:44:54 12728 /blog/ wpsc_is_caching_user_disabled: false
+14:44:54 12728 /blog/ wp_cache_get_cookies_values: return: 
+14:44:54 12728 /blog/ wp_cache_check_mobile: 
+14:44:54 12728 /blog/ Writing non-gzipped buffer to supercache file.
+14:44:54 12728 /blog/ Renamed temp supercache file to E:\git\blog\wp-content\cache\supercache\192.168.3.164\blog/index.html
+14:44:54 12728 /blog/ releasing lock using flock()
+14:44:54 12728 /blog/ Sending buffer to browser
+14:44:54 12728 /blog/ wp_cache_shutdown_callback: collecting meta data.
+14:44:54 12728 /blog/ Did not write meta file: meta-wp-cache-d5d411ac8e3efc0f17c830ff34168c2a.php
+supercacheonly: 1
+wp_cache_not_logged_in: 0
+new_cache:1
